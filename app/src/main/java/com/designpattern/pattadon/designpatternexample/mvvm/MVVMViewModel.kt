@@ -100,6 +100,10 @@ class MVVMViewModel(mvvmCallback: MVVMViewModelToViewInterface?) : MVVMInterface
         errorMessage.set(errorMsg)
     }
 
+    fun startNextAct() {
+        mvvmCallback?.onStartActivity()
+    }
+
     fun onDestroy() {
         // prevent memory leak
         mvvmCallback = null

@@ -5,5 +5,6 @@ package com.designpattern.pattadon.designpatternexample.mvvm
  */
 
 interface MVVMViewModelToViewInterface{
+    fun onStartActivity()
     fun onLoginComplete()
 }

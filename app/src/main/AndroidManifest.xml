@@ -9,20 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SampleActivity">
-        </activity>
+        <activity android:name=".SampleActivity"></activity>
         <activity android:name=".mvc.MVCMainActivity" />
-        <activity android:name=".mvp.MVPMainActivity">
-
-        </activity>
-        <activity android:name=".mvvm.MVVMMainActivity" >
+        <activity android:name=".mvp.MVPMainActivity"></activity>
+        <activity android:name=".mvvm.MVVMMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+        <activity android:name=".NextActivity"></activity>
     </application>
 
 </manifest>
