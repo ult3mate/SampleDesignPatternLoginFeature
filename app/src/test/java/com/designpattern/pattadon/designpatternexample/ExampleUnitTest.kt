@@ -38,12 +38,11 @@ class ExampleUnitTest {
 //        assertTrue(Patterns.EMAIL_ADDRESS.matcher("aaaa@a.com").matches())
 //    }
 
-    @Test
-    fun loginCheck() {
-
+//    @Test
+//    fun loginCheck() {
 //        val mvpLoginService = mock(MVPLoginServiceModel::class.java)
 //        verify(mockLoanCalculator)?.login("test", "1234567", "1234567","aaa@a.com", mvpViewPresenterImpl!!)
-    }
+//    }
 
     @Test
     fun checkTextInLenght() {

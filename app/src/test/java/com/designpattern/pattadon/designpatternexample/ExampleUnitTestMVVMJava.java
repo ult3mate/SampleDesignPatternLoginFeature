@@ -1,5 +1,6 @@
 package com.designpattern.pattadon.designpatternexample;
 
+import android.content.Intent;
 import android.support.design.widget.TextInputEditText;
 import android.widget.Button;
 import android.widget.TextView;
@@ -11,13 +12,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
-import org.robolectric.RuntimeEnvironment;
 import org.robolectric.shadows.ShadowApplication;
 
-import static org.hamcrest.core.Is.is;
-import static org.hamcrest.core.IsNull.notNullValue;
-import static org.junit.Assert.assertThat;
-import static org.robolectric.Shadows.shadowOf;
+import static junit.framework.Assert.assertEquals;
 
 /**
  * Created by pattadon on 9/22/17.
@@ -38,24 +35,25 @@ public class ExampleUnitTestMVVMJava {
     @Before
     public void setUp() {
         activity = Robolectric.setupActivity(MVVMMainActivity.class);
-        usernameEt = activity.findViewById(R.id.username_et);
-        passwordEt = activity.findViewById(R.id.password_et);
-        rePasswordEt = activity.findViewById(R.id.repassword_et);
-        emailEt = activity.findViewById(R.id.email_et);
+        usernameEt = activity.findViewById(R.id.username_mvvm_et);
+        passwordEt = activity.findViewById(R.id.password_mvvm_et);
+        rePasswordEt = activity.findViewById(R.id.repassword_mvvm_et);
+        emailEt = activity.findViewById(R.id.email_mvvm_et);
         errorMessageTv = activity.findViewById(R.id.login_error_msg);
-        loginBtn = activity.findViewById(R.id.login_btn);
+        loginBtn = activity.findViewById(R.id.login_mvvm_btn);
         nextBtn = activity.findViewById(R.id.next_btn);
     }
 
     @Test
     public void loginSuccess() {
-        usernameEt.setText("123456789");
+        usernameEt.setText("A12da");
         passwordEt.setText("123456789");
         rePasswordEt.setText("123456789");
         emailEt.setText("a@a.com");
         loginBtn.performClick();
-        ShadowApplication application = shadowOf(RuntimeEnvironment.application);
-        assertThat("Next activity has started", application.getNextStartedActivity(), is(notNullValue()));
 
+        Intent expectedIntent = new Intent(activity, NextActivity.class);
+        Intent actual = ShadowApplication.getInstance().getNextStartedActivity();
+        assertEquals(expectedIntent.getComponent(), actual.getComponent());
     }
 }

@@ -31,35 +31,35 @@ class MVVMViewModel(mvvmCallback: MVVMViewModelToViewInterface?) : MVVMInterface
     }
 
     fun login() {
-        if (checkUsernameIn6CharacterLength(username.get())) {
+        if (!checkUsernameIn6CharacterLength(username.get())) {
             errorMessage.set("No Username")
             return
         }
-        if (checkConfirmPassword(password.get(), rePassword.get())) {
-            errorMessage.set("No Password")
+        if (!checkConfirmPassword(password.get(), rePassword.get())) {
+            errorMessage.set("Password incorrect")
             return
         }
 
-        if (checkEmailFormat(email.get())) {
+        if (!checkEmailFormat(email.get())) {
             errorMessage.set("No Email")
             return
         }
 
-        if (validateUpperCase(username.get())) {
+        if (!validateUpperCase(username.get())) {
             errorMessage.set("require 1 upper case character")
             return
         }
 
-        if (validateLowerCase(username.get())) {
+        if (!validateLowerCase(username.get())) {
             errorMessage.set("require 1 lower case character")
             return
         }
 
-        if (validateDigitCase(username.get())) {
+        if (!validateDigitCase(username.get())) {
             errorMessage.set("require 1 digit case character")
             return
         }
-        mvvmLoginServiceModel?.login(username.get(), password.get(), rePassword.get(), email.get())
+        mvvmLoginServiceModel?.login(username.get(), password.get(), rePassword.get(), email.get() , this)
     }
 
     fun checkUsernameIn6CharacterLength(username: String): Boolean {

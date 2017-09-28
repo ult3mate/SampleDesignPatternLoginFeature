@@ -4,7 +4,6 @@ import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.widget.Toast
 import com.designpattern.pattadon.designpatternexample.NextActivity
 import com.designpattern.pattadon.designpatternexample.R
 import com.designpattern.pattadon.designpatternexample.databinding.MvvmSampleBinding
@@ -21,14 +20,14 @@ class MVVMMainActivity : AppCompatActivity(), MVVMViewModelToViewInterface {
         super.onCreate(savedInstanceState)
         val binding = DataBindingUtil.setContentView<MvvmSampleBinding>(this, R.layout.mvvm_sample)
 
-
         mvvmViewModel = MVVMViewModel(this)
         binding.mvvmviewmodel = mvvmViewModel
 
     }
 
     override fun onLoginComplete() {
-        Toast.makeText(this, "Login Success", Toast.LENGTH_LONG).show()
+        val intent = Intent(this,NextActivity::class.java)
+        startActivity(intent)
     }
 
     override fun onStartActivity() {

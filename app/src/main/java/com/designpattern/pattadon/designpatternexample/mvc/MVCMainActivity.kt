@@ -63,4 +63,16 @@ class MVCMainActivity : AppCompatActivity() {
         matcher = pattern.matcher(password)
         return matcher!!.matches()
     }
+
+//    override fun onLoginSuccess() {
+//        Toast.makeText(this, "Login Success", Toast.LENGTH_LONG).show()
+//    }
+//
+//    override fun onLoginFail(errorMsg: String) {
+//        Toast.makeText(this, errorMsg, Toast.LENGTH_LONG).show()
+//        if(errorMsg == "No Password"){
+////            repassword_til.error = "Incorrect Password"
+//        }
+//    }
+
 }

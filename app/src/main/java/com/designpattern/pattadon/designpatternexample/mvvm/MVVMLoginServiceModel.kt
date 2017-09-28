@@ -5,7 +5,11 @@ package com.designpattern.pattadon.designpatternexample.mvvm
  */
 
 class MVVMLoginServiceModel {
-    fun login(username : String , password : String , rePassword : String , email : String) : Boolean {
-        return username == "test" && password == rePassword
+    fun login(username : String , password : String , rePassword : String , email : String , mvvm : MVVMInterface) {
+        if(username == "A12da" && password == rePassword){
+            mvvm.onSuccess()
+        }else{
+
+        }
     }
 }
